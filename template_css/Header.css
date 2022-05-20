@@ -1,3 +1,18 @@
+/* Logo */
+.navbar_Logo{
+    display: flex; /* flex box 선언 */
+    justify-content: space-between; /* 일정한 간격으로 배치 */
+    padding: 0px 12px;
+    margin: 0px 10%;
+}
+
+#Logo_Main{
+    font-size: 22px;
+    margin: 0 0 15px 0;
+    color: rgb(21, 21, 235);
+}
+
+/* Menu */
 a{
     text-decoration: none; /* a 태그 밑줄 제거 */
 }
