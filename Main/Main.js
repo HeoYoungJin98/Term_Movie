@@ -1,4 +1,7 @@
 $(document).ready(function(){
+    $("#template_space").load("../template/template_Logo.html");
+    $("#template_nav_space").load("../template/template_nav.html");
+
     function Login(){ //Login function
         let ID = $("#MNum").val(); //ID 값 가져옴
         let PW = $("#Password").val(); //PW 값 가져옴
@@ -10,12 +13,12 @@ $(document).ready(function(){
                 PWD: PW,
             },
             function(Result){ //결과를 받아와 callback
-
+                alert(Result);
             }
         )
     }
     
     $("#Login_btn").on("click", function(){ //로그인 클릭시 이벤트
-
+        Login();
     })
 })

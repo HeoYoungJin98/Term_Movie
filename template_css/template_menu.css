@@ -1,0 +1,25 @@
+a{
+    text-decoration: none; /* a 태그 밑줄 제거 */
+}
+
+.navbar{
+    display: flex; 
+    justify-content: space-between; /* 일정한 간격으로 배치 */
+    border-top: 1px solid gray;
+    border-bottom: 1px solid blue;
+}
+
+.navbar_menu{
+    display: flex;
+    list-style: none; /* 리스트 앞의 점 제거 */
+    padding-left: 0;
+    margin: 0px 10%;
+}
+
+.navbar_menu li{ /* navbar_menu 안의 li 태그 */
+    padding: 0px 12px;
+}
+
+.navbar_menu li p{/*  */
+    color: black;
+}

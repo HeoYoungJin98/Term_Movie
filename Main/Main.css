@@ -1,24 +1,4 @@
-body{
-    background-color: rgb(224, 230, 235);
-}
-
-.container{
-    height: 100vh; /* 보이는 heigt의 100% 사용 */
-    display: flex; /* flex box 선언 */
-    flex-direction: row; /* 왼쪽에서 오른쪽으로 방향 지정 */
-    flex-wrap: nowrap; /* 창을 줄여도 자리 그대로 유지, 크기만 변경 */
-    justify-content: center; /* 중심축에서 중앙에 위치 */
-    align-items: center; /* 수직 방향에서 중심에 위치 */
-}
-
-#Login_box{
-    border: 1px solid snow;
-    border-radius: 7px;
-    background-color: aliceblue;
-    padding: 5%;
-}
-
-.Font{
-    font-family: 'Dongle', sans-serif;
-    font-family: 'Jua', sans-serif;
+#Main_Img{
+    width: 100%;
+    height: 550px;
 }
