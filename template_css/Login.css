@@ -1,0 +1,21 @@
+#Not_Login{
+    margin: 2px 0 0 0;
+    padding: 0 12px;
+    display: flex;
+    justify-content: end;
+}
+
+#ID, #PWD{
+    width: 8%;
+}
+
+#Success_Login{
+    margin: 2px 0 0 0;
+    padding: 0 12px;
+    display: flex;
+    justify-content: end;
+}
+
+#Success_Login p{
+    margin: 2px 0 0 0;
+}
