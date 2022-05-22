@@ -11,8 +11,8 @@ $(document).ready(function(){
         $("#Login_div").append(div);
     }
 
-    if(localStorage.getItem("user_info") != null){ // localStorage에 저장된 값이 있을 경우
-        const { name } = JSON.parse(localStorage.getItem("name")); //이름을 저장
+    if(sessionStorage.getItem("user_info") != null){ // sessionStorage에 저장된 값이 있을 경우 
+        const { name, Mnum } = JSON.parse(sessionStorage.getItem("user_info")); //이름을 저장
         Login(name);
     }else{// 로그인하지 않은 상태일 경우
         $("#Login_div").load("../template/Not_Login.html");
@@ -35,8 +35,7 @@ $(document).ready(function(){
                         name: Result,
                         Mnum: ID,
                     }
-
-                    localStorage.setItem("user_info", JSON.stringify(user_info));//로컬 스토리지에 저장
+                    sessionStorage.setItem("user_info", JSON.stringify(user_info));//로컬 스토리지에 저장
                 }
             }
         )

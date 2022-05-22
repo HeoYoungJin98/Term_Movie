@@ -1,3 +1,7 @@
+body{
+    margin: 0;
+}
+
 /* Logo */
 .navbar_Logo{
     display: flex; /* flex box 선언 */
@@ -21,7 +25,7 @@ a{
     display: flex; 
     justify-content: space-between; /* 일정한 간격으로 배치 */
     border-top: 1px solid gray;
-    border-bottom: 1px solid blue;
+    border-bottom: 3px solid blue;
 }
 
 .navbar_menu{
