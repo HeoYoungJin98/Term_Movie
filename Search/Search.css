@@ -1,0 +1,101 @@
+#Page_Inf{
+    border-bottom: 3px solid black;
+    margin: 0 10%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#Page_Inf #Text{
+    margin-top: 15px;
+    margin-bottom: 0;
+    padding: 12px 0 8px 12px;
+    font-size: 25px;
+    justify-content: start;
+}
+
+.Search_box{
+    margin: 15px 0 0 0;
+    padding: 0;
+    padding-top: 12px;
+    display: flex;
+    justify-content: end;
+    height: 30px;
+}
+
+.Search_box p{
+    margin: 0;
+}
+
+#Name_Search{
+    border: none;
+    border-radius: 10px;
+    height: 20px;
+    box-shadow: 0 0 0 1px rgb(201, 201, 201);
+    margin: 4px;
+}
+
+#Search_btn{
+    border: none;
+    background-color: transparent;
+    width: 25px;
+    background-image: url("../Image/Search_Icon.png");
+    background-size: contain;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.Select_Space{
+    list-style: none;
+}
+
+input[id*="Select"]{ /* input 태그에서 아이디에 Select를 포함하고 있는 태그들 */
+    display: none;
+}
+
+label{
+    color: black;
+}
+
+input[id*="Select"] + label{
+    display: block;
+    padding: 10px;
+}
+
+input[id*="Select"]:checked + label{ /*  박스가 체크될 경우 인접 label 속성 */
+    color: blue;
+}
+
+#Select_div{
+    display: flex;
+    border-right: 1px solid rgb(152, 152, 152);
+    margin: 0 2% 0 10%;
+    height: auto;
+}
+
+.Select_Space{
+    padding: 0;
+}
+
+#Content{
+    display: flex;
+    padding: 0;
+}
+
+#Movie_Inf{
+    width: 70%;
+}
+
+#Result{
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td{
+    border: 1px solid black;
+    text-align: center;
+}
+
+th{
+    background-color: rgb(145, 181, 252);
+}

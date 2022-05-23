@@ -24,8 +24,8 @@ a{
 .navbar{
     display: flex; 
     justify-content: space-between; /* 일정한 간격으로 배치 */
-    border-top: 1px solid gray;
-    border-bottom: 3px solid blue;
+    border-top: 1px solid rgb(225, 225, 225);
+    border-bottom: 1px solid blue;
 }
 
 .navbar_menu{
