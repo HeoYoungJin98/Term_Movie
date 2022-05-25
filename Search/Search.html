@@ -17,7 +17,7 @@
         <div id="Page_Inf">
             <p class="Font" id="Text">영화 검색</p>
             <div class="Search_box">
-                <input type="text" name="Name_Search" id="Name_Search">
+                <input type="text" name="Name_Search" id="Name_Search" placeholder="범죄도시2">
                 <button id="Search_btn"></button>
             </div>
         </div>
@@ -31,17 +31,28 @@
                 </ul>
             </div>
             <div id="Movie_Inf">
-                <table id="Result">
+                <div class="Select_btn">
+                    <div class="Select_Order">
+                        <li><input type="radio" name="Order" id="Select_Date" checked value="1">
+                        <label for="Select_Date" class="Font">개봉일 순서</label></li>
+                        <li><input type="radio" name="Order" id="Select_Booked" value="2">
+                        <label for="Select_Booked" class="Font">예매순위</label></li>
+                    </div>
+                </div>
+                <table id="Result_Header">
                     <tr>
-                        <th><p class="Font">영화 이름</p></th>
-                        <th><p class="Font">장르</p></th>
-                        <th><p class="Font">개봉일</p></th>
-                        <th><p class="Font">감독</p></th>
-                        <th><p class="Font">출연자</p></th>
-                        <th><p class="Font">총 상영 시간</p></th>
-                        <th><p class="Font">관람 등급 정보</p></th>
-                        <th><p class="Font">예매하기</p></th>
+                        <td><p class="Font">영화 이름</p></td>
+                        <td><p class="Font">장르</p></td>
+                        <td><p class="Font">개봉일</p></td>
+                        <td><p class="Font">감독</p></td>
+                        <td><p class="Font">출연자</p></td>
+                        <td><p class="Font">총 상영 시간</p></td>
+                        <td><p class="Font">관람 등급 정보</p></td>
+                        <td><p class="Font">예매하기</p></td>
                     </tr>
+                    <div id="Result_Part">
+
+                    </div>
                 </table>
             </div>
         </ul>

@@ -48,6 +48,12 @@
     list-style: none;
 }
 
+.Select_Order{
+    list-style: none;
+    display: flex;
+    justify-content: end;
+}
+
 input[id*="Select"]{ /* input 태그에서 아이디에 Select를 포함하고 있는 태그들 */
     display: none;
 }
@@ -85,13 +91,13 @@ input[id*="Select"]:checked + label{ /*  박스가 체크될 경우 인접 label
     width: 70%;
 }
 
-#Result{
+#Result_Header{
     width: 100%;
     border: 1px solid black;
     border-collapse: collapse;
 }
 
-th, td{
+td{
     border: 1px solid black;
     text-align: center;
 }

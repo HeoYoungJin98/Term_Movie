@@ -5,7 +5,7 @@
 <%
     request.setCharacterEncoding("utf-8");
 
-    String ID = request.getParameter("ID");
+    String ID = request.getParameter("ID"); // 넘겨받은 ID값 저장
     String PWD = request.getParameter("PWD");
 
     ResultSet rs = null;
