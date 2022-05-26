@@ -16,10 +16,14 @@
     String sql = null;
 
     try{
-        if(Order == 1){ //1이면 개봉일 오름차순 2이면 예매순위 오름차순
+        if(Order == 1){ //1= 개봉일 오름차순 2= 예매자 수 내림차순 3= 개봉 예정 영화 개봉일 오름차순 4= 개봉 예정 영화 예매자 수 내림차순
             sql = "SELECT 영화.영화이름, 영화.장르, 영화.개봉일, 영화.감독, 영화.출연자, 영화.총상영시간, 영화.관람등급정보, 개별상세정보_상영중.예매자수 FROM 영화, 개별상세정보_상영중 WHERE 개봉일 >= (SYSDATE -7)  AND SYSDATE >= 개봉일  AND 영화.영화이름 = 개별상세정보_상영중.영화이름 ORDER BY 개봉일 ASC"; //상영중인 영화를 검색하는 SQL문
-        }else{
+        }else if(Order == 2){
             sql = "SELECT 영화.영화이름, 영화.장르, 영화.개봉일, 영화.감독, 영화.출연자, 영화.총상영시간, 영화.관람등급정보, 개별상세정보_상영중.예매자수 FROM 영화, 개별상세정보_상영중 WHERE 개봉일 >= (SYSDATE -7)  AND SYSDATE >= 개봉일  AND 영화.영화이름 = 개별상세정보_상영중.영화이름 ORDER BY 예매자수 DESC";
+        }else if(Order == 3){
+            sql = "SELECT 영화.영화이름, 영화.장르, 영화.개봉일, 영화.감독, 영화.출연자, 영화.총상영시간, 영화.관람등급정보, 개별상세정보_예정.예매자수 FROM 영화, 개별상세정보_예정 WHERE 개봉일 > SYSDATE AND 영화.영화이름 = 개별상세정보_예정.영화이름 ORDER BY 개봉일 ASC";
+        }else{
+            sql = "SELECT 영화.영화이름, 영화.장르, 영화.개봉일, 영화.감독, 영화.출연자, 영화.총상영시간, 영화.관람등급정보, 개별상세정보_예정.예매자수 FROM 영화, 개별상세정보_예정 WHERE 개봉일 > SYSDATE AND 영화.영화이름 = 개별상세정보_예정.영화이름 ORDER BY 예매자수 DESC";
         }
         stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
         rs = stmt.executeQuery(sql);

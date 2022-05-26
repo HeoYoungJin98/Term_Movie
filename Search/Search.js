@@ -1,6 +1,6 @@
 $(document).ready(function(){
     //-------------------------functions------------------------------
-    function ShowResult(i){ //검색 결과를 보여주는 함수
+    function ShowResult(i){ //상영중인 영화 검색 결과를 보여주는 함수
         $.post(
             "../Search/Showing.jsp",//jsp파일에 정보 전달
             {
@@ -51,12 +51,22 @@ $(document).ready(function(){
     })
 
     $("input[name=Order]").on("click",function(){ //정렬 방식 클릭
+        let now = $("input[name=Select]:checked").val(); //상영중인 영화를 보고 있는지 개봉 예정 영화를 보고 있는지 체크
         let val = $(this).val(); //정렬 방식에 해당하는 값 가져옴
-        ShowResult(val);
+        
+        if(now == 1 && val ==1){ //상영중인 영화의 개봉일 오름차순
+            ShowResult(1); 
+        }else if(now == 1 && val == 2){ //상영중인 영화의 예매자 수 내림차순
+            ShowResult(2);
+        }else if(now == 2 && val == 1){ //상영 예정 영화의 개봉일 오름차순
+            ShowResult(3);
+        }else{
+            ShowResult(4);
+        }
     })
 
     $("#Select_Upcoming").on("click",function(){ //개봉 예정 영화 클릭
-
+        ShowResult(3);
     })
 
     $("#Search_btn").on("click",function(){ //검색 버튼 클릭 이벤트
