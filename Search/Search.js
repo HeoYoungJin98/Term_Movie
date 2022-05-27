@@ -17,6 +17,7 @@ $(document).ready(function(){
         let test = array
         test=test.replace("[","");
         test=test.replace("]","");
+        test=test.replaceAll("\n","");
         const arr = test.split(","); //,단위로 문장 split
         let Row = arr.length / 8;
         let r = 0;
@@ -90,9 +91,10 @@ $(document).ready(function(){
                 let test = Result;
                 test=test.replace("[","");
                 test=test.replace("]","");
+                test=test.replaceAll("\n","");
                 const arr = test.split(","); //,단위로 문장 split
                 arr[0] = arr[0].trim();
-                arr[9] = arr[8].trim();
+                arr[8] = arr[8].trim();
                 alert("상세정보\n영화 이름: " + arr[0] + "\n장르: " + arr[1] + "\n개봉일: " + arr[2] + "\n감독: " + arr[3] + "\n출연자: " + arr[4] + "\n총 상영시간: " + arr[5] + "분\n관람등급정보: " + arr[6] + "\n예매자 수: " + arr[7] + "명\n누적관객수: " + arr[8]+ "명");
             }
         )

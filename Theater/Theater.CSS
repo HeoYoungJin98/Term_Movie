@@ -1,0 +1,32 @@
+.Select_Theater{
+    text-align: center;
+}
+
+#Select{
+    border: 1px solid black;
+    padding: 60 53 0 53;
+    display: inline-block;
+    justify-content: center;
+    background-image: url(../Image/Movie_Theater_Curtain.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 60%;
+    height: 400px;
+}
+
+#Select p{
+    color: white;
+    font-size: 30px;
+}
+
+#List{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10%;
+    margin-top: 20%;
+    padding-left: 0;
+}
+
+li{
+    list-style: none;
+}
