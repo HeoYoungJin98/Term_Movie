@@ -18,17 +18,25 @@ $(document).ready(function(){
         test=test.replace("[","");
         test=test.replace("]","");
         const arr = test.split(","); //,단위로 문장 split
-        console.log(test);
         let Row = arr.length / 8;
         let r = 0;
         while(r < Row){
             let Create_Tr = document.createElement("tr");
             let div = document.getElementById("Result_Part");
             div.appendChild(Create_Tr);
+            arr[r*8] = arr[r*8].trim(); //영화 제목에 줄바꿈이 포함돼서 돌아옴. 줄바꿈 제거
+            arr[r*8+7] = arr[r*8+7].trim(); //마지막에 줄바꿈이 포함돼서 돌아옴. 줄바꿈 제거
             for(let i = 0; i<8; i++){
                 let Create_Td = document.createElement("td");
                 let Text = document.createTextNode(arr[r*8+i]);
-                Create_Td.appendChild(Text);
+                if(i == 0){
+                    let Create_link = document.createElement("button");
+                    Create_link.setAttribute("Class","Name_btn");
+                    Create_link.appendChild(Text);
+                    Create_Td.appendChild(Create_link);
+                }else{
+                    Create_Td.appendChild(Text);
+                }
                 Create_Tr.appendChild(Create_Td);
             }
             r++
@@ -69,7 +77,24 @@ $(document).ready(function(){
         ShowResult(3);
     })
 
-    $("#Search_btn").on("click",function(){ //검색 버튼 클릭 이벤트
-        
+    $(document).on("click",".Name_btn",function(){ //영화 이름 클릭시 이벤트, 개별 상세 정보 제공
+        let Name = this.firstChild.nodeValue;
+        let now = $("input[name=Select]:checked").val(); //상영중인 영화를 보고 있는지 개봉 예정 영화를 보고 있는지 체크
+        $.post(
+            "Show_detail.jsp",
+            {
+                Name: Name,
+                Now: now,
+            },
+            function(Result){
+                let test = Result;
+                test=test.replace("[","");
+                test=test.replace("]","");
+                const arr = test.split(","); //,단위로 문장 split
+                arr[0] = arr[0].trim();
+                arr[9] = arr[8].trim();
+                alert("상세정보\n영화 이름: " + arr[0] + "\n장르: " + arr[1] + "\n개봉일: " + arr[2] + "\n감독: " + arr[3] + "\n출연자: " + arr[4] + "\n총 상영시간: " + arr[5] + "분\n관람등급정보: " + arr[6] + "\n예매자 수: " + arr[7] + "명\n누적관객수: " + arr[8]+ "명");
+            }
+        )
     })
 })
