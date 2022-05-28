@@ -1,0 +1,33 @@
+.Content_div{ /*  div */
+    text-align: center;
+}
+
+.Content{ /* ul */
+    display: inline-flex;
+    width: 70%;
+}
+
+ul, li{
+    list-style: none;
+}
+
+.Theater{
+    border-left: 2px solid rgb(172, 172, 172);
+    border-right: 2px solid rgb(172, 172, 172);
+    width: 20%;
+}
+
+.Movie{
+    border-right: 2px solid rgb(172, 172, 172);
+    width: 40%;
+}
+
+.Date{
+    border-right: 2px solid rgb(172, 172, 172);
+    width: 25%;
+}
+
+.Time{
+    border-right: 2px solid rgb(172, 172, 172);
+    width: 40%;
+}

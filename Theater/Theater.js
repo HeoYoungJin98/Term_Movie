@@ -13,6 +13,9 @@ $(document).ready(function(){
                 test = test.replaceAll(" ","");
                 const arr = test.split(",");
                 let create_li = document.createElement("li");
+                let create_btn = document.createElement("button");
+                
+                // 버튼 생성해서 영화관 이름 받아온 결과 붙이기
                 
             }
         )
