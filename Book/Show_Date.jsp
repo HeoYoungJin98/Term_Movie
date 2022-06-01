@@ -4,6 +4,7 @@
 <%@ page import="java.util.Arrays" %>
 
 <%
+    String Name = request.getParameter("Name");
     int Theater = Integer.parseInt(request.getParameter("Theater"));
     ResultSet rs = null;
     Statement stmt = null;
@@ -13,7 +14,7 @@
     String sql = null;
 
     try{
-        sql = "SELECT DISTINCT 스케줄.영화이름 FROM 영화관, 상영관, 스케줄 WHERE 영화관.영화관번호 = "+Theater+" AND 영화관.영화관번호  = 상영관.영화관번호 AND 상영관.상영관번호 = 스케줄.상영관번호 AND 스케줄.시작시간 <= SYSDATE + 7";
+        sql = "SELECT DISTINCT TO_CHAR(스케줄.시작시간,'yyyy-mm-dd') FROM 상영관, 스케줄 WHERE 상영관.상영관번호 = 스케줄.상영관번호 AND 상영관.영화관번호 = "+Theater+" AND 스케줄.영화이름 = '"+Name+"'";
         stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
         rs = stmt.executeQuery(sql);
 
