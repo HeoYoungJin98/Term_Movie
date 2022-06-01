@@ -17,6 +17,10 @@ ul, li{
     width: 20%;
 }
 
+[id$="List"]{
+    padding: 0;
+}
+
 .Movie{
     border-right: 2px solid rgb(172, 172, 172);
     width: 40%;

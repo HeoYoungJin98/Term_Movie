@@ -8,6 +8,8 @@ $(document).ready(function(){
         for(let i = 0; i < arr.length; i++){
             let create_li = document.createElement("li");
             let create_a = document.createElement("a");
+            create_a.setAttribute("class","Theater_link");
+            create_a.setAttribute("data-value",i+1);
             let create_p = document.createElement("p");
             create_p.setAttribute("class","Font");
             let Text = document.createTextNode(arr[i]);
@@ -20,7 +22,7 @@ $(document).ready(function(){
 
     function Show_Theater(){ //극장을 보여주는 함수
         $.post(
-            "Show_Theater.jsp",
+            "../Theater/Get_theater.jsp",
             {
 
             },
@@ -32,7 +34,7 @@ $(document).ready(function(){
 
     function Show_Movie(Name){ //극장을 선택하면 영화들을 보여주는 함수
         $.post(
-            "Show_Moie.jsp",
+            "Show_Movie.jsp",
             {
                 Theater: Name, //넘겨줄 값으로 영화관 이름이 필요함
             },
@@ -42,5 +44,9 @@ $(document).ready(function(){
         )
     }
 
-    
+    Show_Theater();
+
+    $(document).on("click",".Theater_link",function(){
+        Show_Movie($(this).attr("data-value"));
+    })
 })
