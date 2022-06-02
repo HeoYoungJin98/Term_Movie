@@ -8,6 +8,8 @@ $(document).ready(function(){
         for(let i = 0; i < arr.length; i++){
             let create_li = document.createElement("li");
             let create_a = document.createElement("a");
+            create_a.setAttribute("href","#");
+            create_a.setAttribute("onclick","return false;");
             if(Type == 1){
                 create_a.setAttribute("class","Theaters");
                 create_a.setAttribute("data-value",i+1);
@@ -35,17 +37,17 @@ $(document).ready(function(){
         test=test.replace("]","");
         test=test.replaceAll("\n","");
         const arr = test.split(",");
-        let Row = arr.length/3;
+        let Row = arr.length/4;
         let r = 0;
         while(r<Row){
             let Create_Tr = document.createElement("tr");
             let div = document.getElementById("Result");
             div.appendChild(Create_Tr);
-            for(let i = 0; i<3; i++){
+            for(let i = 0; i<4; i++){
                 let Create_Td = document.createElement("td");
-                let Text = document.createTextNode(arr[r*3+i]);
-                if(arr[r*3+i].charAt(0) == " "){
-                    arr[r*3+i] = arr[r*3+i].replace(" ","");
+                let Text = document.createTextNode(arr[r*4+i]);
+                if(arr[r*4+i].charAt(0) == " "){
+                    arr[r*4+i] = arr[r*4+i].replace(" ","");
                 }
                 Create_Td.appendChild(Text);
                 Create_Tr.appendChild(Create_Td);
@@ -162,4 +164,6 @@ $(document).ready(function(){
         Show_Time(Selected_Theater,Selected_Movie,temp);
         Show_Detail(Selected_Theater,Selected_Movie,temp);
     })
+
+    $()
 })
