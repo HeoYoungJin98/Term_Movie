@@ -69,12 +69,35 @@ a{
     width: 30%;
 }
 
+[id^="User"]{
+    width: 30%;
+    text-align: left;
+    visibility: hidden;
+    padding-top: 1%;
+    padding-left: 2%;
+}
+
 #Input_Inf{
-    padding: 7%;
+    padding: 7% 0 7% 7%;
     text-align: left;
 }
 
 #Price{
     padding-left: 7%;
     text-align: left;
+}
+
+#Result_Space{
+    visibility: hidden;
+}
+
+#Go_Book{
+    border-radius: 12px;
+    background-color: rgb(64, 64, 252);
+    color: White;
+    width: 80px;
+    height: 80px;
+    position: relative;
+    top: 18%;
+    visibility: hidden;
 }

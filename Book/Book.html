@@ -87,12 +87,27 @@
                     <div id="Result_Space">
                         <div id="Input_Inf">
                         <label for="Number_Teen" class="Font">청소년: </label>
-                        <input type="number" name="Number_Teen" id="Number_Teen"><br>
+                        <input type="number" name="Number_Teen" id="Number_Teen" value="0"><br>
                         <label for="Number_Adt" class="Font">성인: </label>
-                        <input type="number" name="Number_Adt" id="Number_Adt"><br>
+                        <input type="number" name="Number_Adt" id="Number_Adt" value="0"><br>
                         </div>
                         <div id="Price">
-                            <p class="Font">총 가격: </p>
+                            <p class="Font" id="Price_p">총 가격: </p>
+                        </div>
+                    </div>
+                    <div>
+                        <button id="Go_Book"><p class="Font">예매하기</p></button>
+                    </div>
+                    <div id="User_Space">
+                        <div id="user_Input">
+                            <label for="User_Cash" class="Font">현금: </label>
+                            <input type="number" name="User_Cash" id="User_Cash" value="0"><br>
+                            <label for="User_Point" class="Font">포인트: </label>
+                            <input type="number" name="User_Point" id="User_Point" value="0"><br>
+                            <button id="Check">확인</button>
+                        </div>
+                        <div class="My_Point">
+                            <p class="Font" id="My_Points">0</p>
                         </div>
                     </div>
                 </div>
