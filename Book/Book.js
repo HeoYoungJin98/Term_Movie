@@ -131,7 +131,9 @@ $(document).ready(function(){
     Show_Theater();
 
     let Selected_Theater = 0;
+    let Selected_Theater_text;
     let Selected_Movie;
+    let Selected_Time;
     $(document).on("click",".Theaters",function(){ //극장 선택
         RemoveAllChild("Movie_List");
         RemoveAllChild("Date_List");
@@ -140,6 +142,11 @@ $(document).ready(function(){
         let temp = $(this).data("value");
         Selected_Theater = temp;
         Show_Movie(temp);
+        Selected_Theater_text = $(this).text();
+        let p = document.getElementById("Selected_Theater")
+        p.removeChild(p.firstChild);
+        let Text = document.createTextNode("극장: " + Selected_Theater_text);
+        p.appendChild(Text);
     })
 
     $(document).on("click",".Movies",function(){ //영화 선택
@@ -152,6 +159,10 @@ $(document).ready(function(){
         }
         Selected_Movie = temp;
         Show_Date(temp,String(Selected_Theater));
+        let p = document.getElementById("Selected_Movie");
+        p.removeChild(p.firstChild);
+        let Text = document.createTextNode("영화: " + temp);
+        p.appendChild(Text);
     })
 
     $(document).on("click",".Dates",function(){ //날짜 선택
@@ -161,9 +172,40 @@ $(document).ready(function(){
         if(temp.charAt(0) == " "){
             temp = temp.replace(" ","");
         }
+        Selected_Time = temp;
         Show_Time(Selected_Theater,Selected_Movie,temp);
         Show_Detail(Selected_Theater,Selected_Movie,temp);
+        let p = document.getElementById("Selected_Date");
+        p.removeChild(p.firstChild);
+        let Text = document.createTextNode("일시: " + temp);
+        p.appendChild(Text);
     })
 
-    $()
+    $(document).on("click",".Times",function(){ //스케줄 선택시
+        let temp = $(this).children().text();
+        let p = document.getElementById("Selected_Date");
+        p.removeChild(p.firstChild);
+        let Text = document.createTextNode("일시: " + temp);
+        p.appendChild(Text);
+    })
+
+    $("input[type=number]").change(function(){ //인원수 박스 변경시 이벤트
+        let Teen = 0; 
+        Teen = parseInt($("#Number_Teen").val());
+        let Adt = 0;
+        Adt = parseInt($("#Number_Adt").val());
+        if(Teen + Adt > 10){
+            alert("한 번에 최대 10명까지 예매 가능합니다.");
+        }
+        $.post(
+            "Get_Type.jsp",
+            {
+                Name: Selected_Movie,
+                Time: Selected_Time,
+            },
+            function(Result){
+                
+            }
+        )
+    })
 })

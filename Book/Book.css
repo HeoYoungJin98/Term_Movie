@@ -58,3 +58,23 @@ td{
 a{
     color: black;
 }
+
+#Input_Space{
+    padding-right: 15px;
+    padding-left: 7%;
+    border-right: 1px solid rgb(172, 172, 172);
+}
+
+[id^="Number"]{
+    width: 30%;
+}
+
+#Input_Inf{
+    padding: 7%;
+    text-align: left;
+}
+
+#Price{
+    padding-left: 7%;
+    text-align: left;
+}
