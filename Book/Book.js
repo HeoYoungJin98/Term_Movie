@@ -148,7 +148,7 @@ $(document).ready(function(){
         )
     }
 
-    function Add_List(Mnum, Movie, Theater, Time, Mem, Cash, Point, Total){ //예매 정보 저장
+    function Add_List(Mnum, Movie, Theater, Time, Mem, Cash, Point, Total, Mnum){ //예매 정보 저장
         $.post(
             "Add_List.jsp",
             {
@@ -160,6 +160,7 @@ $(document).ready(function(){
                 Cash: Cash, //현금결제
                 Point: Point, //포인트결제
                 Total: Total, //총 금액
+                Mnum: Mnum,
             },
             function(Result){
                 alert("예매가 완료되었습니다.");
@@ -318,9 +319,10 @@ $(document).ready(function(){
         if(parseInt(Cash) + parseInt(Point) != Price){
             alert("올바른 금액을 입력해주세요.");
         }else{ //결제 완료
-            //Add_List(Mnum,Selected_Movie,Selected_Theater,Selected_Time,mem,Cash,Point, Price); //예매정보 테이블에 값 Insert
-            //Add_Booker_Into_Movie() //영화 테이블에 예매자수 Insert
-            //Add_Booker_Into_Schedule() //스케줄 테이블에 예매자수 Insert
+            Add_List(Mnum,Selected_Movie,Selected_Theater,Selected_Time,mem,Cash,Point, Price, Mnum); //예매정보 테이블에 값 Insert
+            Add_Booker_Into_Movie(Selected_Movie,mem) //영화 테이블에 예매자수 Insert
+            Add_Booker_Into_Schedule(Selected_Movie,Selected_Time,mem) //스케줄 테이블에 예매자수 Insert
+            alert("예매가 완료 되었습니다.");
         }
     })
 

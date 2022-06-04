@@ -65,6 +65,10 @@ a{
     border-right: 1px solid rgb(172, 172, 172);
 }
 
+#User_Space{
+    border-right: 1px solid rgb(172, 172, 172);
+}
+
 [id^="Number"]{
     width: 30%;
 }
@@ -100,4 +104,10 @@ a{
     position: relative;
     top: 18%;
     visibility: hidden;
+    border-right: 1px solid rgb(172, 172, 172);
+}
+
+.button_Space{
+    border-right: 1px solid rgb(172, 172, 172);
+    padding: 11px;
 }
