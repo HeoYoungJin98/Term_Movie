@@ -4,15 +4,14 @@
 <%@ page import="java.util.Arrays" %>
 
 <%
-    String Movie = request.getParameter("Movie");
-    int mem = Integer.parseInt(request.getParameter("Mem"));
-    String Time = request.getParameter("Time");
+    int Mnum = Integer.parseInt(request.getParameter("Mnum"));
+    int Accum = Integer.parseInt(request.getParameter("accum"));
 
     Statement stmt = null;
     String sql = null;
 
     try{
-        sql = "Update 스케줄 SET 예매자수 = 예매자수 + "+mem+" WHERE 영화이름='"+Movie+"' AND TO_CHAR(시작시간, 'yyyy-mm-dd HH24:Mi:ss') = '"+Time+"'";
+        sql = "Update 회원 SET 포인트 = 포인트 + "+Accum+" WHERE 회원번호 = "+Mnum+"";
         stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
         stmt.executeUpdate(sql);
     }catch(SQLException ex){

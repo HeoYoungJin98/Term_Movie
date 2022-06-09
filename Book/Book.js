@@ -163,7 +163,6 @@ $(document).ready(function(){
                 Mnum: Mnum,
             },
             function(Result){
-                alert("예매가 완료되었습니다.");
             }
         )
     }
@@ -195,6 +194,37 @@ $(document).ready(function(){
         )
     }
 
+    function Add_Point(Mnum, accum){
+        $.post(
+            "Add_Point.jsp",
+            {
+                Mnum: Mnum,
+                accum: accum,
+            },
+            function(Result){
+
+            }
+        )
+    }
+    
+    function Reduce_Point(Mnum, Point){
+        $.post(
+            "Reduce_Point.jsp",
+            {
+                Mnum: Mnum,
+                Point: Point,
+            },
+            function(Result){
+
+            }
+        )
+    }
+
+    function Reset_Value(){
+        $("#Number_Teen").val(0);
+        $("#Number_Adt").val(0);
+    }
+
     Show_Theater();
 
     let Selected_Theater = 0;
@@ -202,6 +232,7 @@ $(document).ready(function(){
     let Selected_Movie;
     let Selected_Time;
     $(document).on("click",".Theaters",function(){ //극장 선택
+        Reset_Value();
         RemoveAllChild("Movie_List");
         RemoveAllChild("Date_List");
         RemoveAllChild("Time_List");
@@ -319,9 +350,17 @@ $(document).ready(function(){
         if(parseInt(Cash) + parseInt(Point) != Price){
             alert("올바른 금액을 입력해주세요.");
         }else{ //결제 완료
+            let accum = 0;
+            accum = Cash/20;
             Add_List(Mnum,Selected_Movie,Selected_Theater,Selected_Time,mem,Cash,Point, Price, Mnum); //예매정보 테이블에 값 Insert
             Add_Booker_Into_Movie(Selected_Movie,mem) //영화 테이블에 예매자수 Insert
             Add_Booker_Into_Schedule(Selected_Movie,Selected_Time,mem) //스케줄 테이블에 예매자수 Insert
+            if(Point != 0){
+                Reduce_Point(Mnum, Point);
+                Add_Point(Mnum, accum);
+            }else{
+                Add_Point(Mnum, accum); //회원의 포인트 적립
+            }
             alert("예매가 완료 되었습니다.");
         }
     })
