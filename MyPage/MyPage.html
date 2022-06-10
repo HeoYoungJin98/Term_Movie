@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+            <link rel="stylesheet" href="../template_css/Header.css">
+            <link rel="stylesheet" href="../template_css/Login.css">
+            <link rel="stylesheet" href="MyPage.css">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+            <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gothic+A1&family=Jua&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="../Font/Font.css">
+    </head>
+    <body>
+        <div id="Login_div"></div>
+        <div id="template_space"></div>
+        <div class="All_Content">
+            <div class="list_div">
+                <ul class="menues">
+                    <li><input type="radio" name="Select" id="Cancel">
+                    <label for="Cancel" class="Font">예매 취소</label></li>
+                    <li><input type="radio" name="Select" id="List_Booked" checked value="1">
+                    <label for="List_Booked" class="Font">영화 예매 내역</label></li>
+                    <li><input type="radio" name="Select" id="List_Cancel" value="2">
+                    <label for="List_Cancel" class="Font">예매 취소 내역</label></li>
+                    <li><input type="radio" name="Select" id="List_Showed" value="3">
+                    <label for="List_Showed" class="Font">영화 관람 내역</label></li>
+                </ul>
+            </div>
+            <div class="Content_div">
+                <table id="Result_Head">
+                    <tr>
+                        <td><p class="Font">예매번호</p></td>
+                        <td><p class="Font">영화</p></td>
+                        <td><p class="Font">관람 영화관</p></td>
+                        <td><p class="Font">관람 일시</p></td>
+                        <td><p class="Font">관람 인원</p></td>
+                        <td><p class="Font">현금 결제 금액</p></td>
+                        <td><p class="Font">포인트 결제 금액</p></td>
+                        <td><p class="Font">총 결제 금액</p></td>
+                        <td><p class="Font" id="Date">예매 일시</p></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="../template_js/Login_Check.js"></script>
+        <script src="../template_js/Header.js"></script>
+        <script src="MyPage.js"></script>
+    </body>
+</html>

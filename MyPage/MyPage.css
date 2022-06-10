@@ -1,0 +1,53 @@
+.All_Content{
+    display: flex;
+    margin-top: 2%;
+}
+
+.list_div{
+    border-right: 1px solid rgb(152, 152, 152);
+    margin: 0 2% 0 10%;
+    height: auto;
+    padding-right: 2%;
+}
+
+.menues{
+    padding: 0 2% 0 12px;
+    width: max-content;
+    margin-right: 2%;
+}
+
+input[type="radio"]{
+    display: none;
+}
+
+input[type="radio"] + label{
+    display: block;
+    padding: 10px;
+}
+
+input[type="radio"]:checked + label{
+    color: blue;
+}
+
+label{
+    color: black;
+}
+
+li{
+    list-style: none;
+}
+
+#Result_Head{
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+td{
+    border: 1px solid black;
+    text-align: center;
+}
+
+.Content_div{
+    width: 70%;
+}
