@@ -14,7 +14,7 @@
     String sql = null;
 
     try{
-        sql = "SELECT DISTINCT TO_CHAR(스케줄.시작시간,'yyyy-mm-dd') FROM 상영관, 스케줄 WHERE 상영관.상영관번호 = 스케줄.상영관번호 AND 상영관.영화관번호 = "+Theater+" AND 스케줄.영화이름 = '"+Name+"' AND 스케줄.시작시간 <= SYSDATE + 7 AND 스케줄.시작시간 >= SYSDATE";
+        sql = "SELECT DISTINCT TO_CHAR(스케줄.시작시간,'yyyy-mm-dd') FROM 상영관, 스케줄 WHERE 상영관.상영관번호 = 스케줄.상영관번호 AND 상영관.영화관번호 = "+Theater+" AND 스케줄.영화이름 = '"+Name+"' AND 스케줄.시작시간 <= CURRENT_DATE + 7 AND 스케줄.시작시간 >= CURRENT_DATE + 20/(24*60)";
         stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
         rs = stmt.executeQuery(sql);
 

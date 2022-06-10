@@ -51,6 +51,38 @@ $(document).ready(function(){
         }
     }
 
+    function Show_detail(Name, Type){
+        $.post(
+            "Show_detail.jsp",
+            {
+                Name: Name,
+                Now: Type,
+            },
+            function(Result){
+                let test = Result;
+                test=test.replace("[","");
+                test=test.replace("]","");
+                test=test.replaceAll("\n","");
+                const arr = test.split(","); //,단위로 문장 split
+                arr[0] = arr[0].trim();
+                arr[8] = arr[8].trim();
+                alert("상세정보\n영화 이름: " + arr[0] + "\n장르: " + arr[1] + "\n개봉일: " + arr[2] + "\n감독: " + arr[3] + "\n출연자: " + arr[4] + "\n총 상영시간: " + arr[5] + "분\n관람등급정보: " + arr[6] + "\n예매자 수: " + arr[7] + "명\n누적관객수: " + arr[8]+ "명");
+            }
+        )
+    }
+
+    function Add_Accum(Name){
+        $.post(
+            "Add_Accum.jsp",
+            {
+                Name: Name,
+            },
+            function(Result){
+                
+            }
+        )
+    }
+
     //-------------------------PageLoad----------------------------
     ShowResult(1); //페이지 로딩이 끝나면 상영중인 영화를 개봉일 오름차순으로 기본 표시
 
@@ -81,22 +113,8 @@ $(document).ready(function(){
     $(document).on("click",".Name_btn",function(){ //영화 이름 클릭시 이벤트, 개별 상세 정보 제공
         let Name = this.firstChild.nodeValue;
         let now = $("input[name=Select]:checked").val(); //상영중인 영화를 보고 있는지 개봉 예정 영화를 보고 있는지 체크
-        $.post(
-            "Show_detail.jsp",
-            {
-                Name: Name,
-                Now: now,
-            },
-            function(Result){
-                let test = Result;
-                test=test.replace("[","");
-                test=test.replace("]","");
-                test=test.replaceAll("\n","");
-                const arr = test.split(","); //,단위로 문장 split
-                arr[0] = arr[0].trim();
-                arr[8] = arr[8].trim();
-                alert("상세정보\n영화 이름: " + arr[0] + "\n장르: " + arr[1] + "\n개봉일: " + arr[2] + "\n감독: " + arr[3] + "\n출연자: " + arr[4] + "\n총 상영시간: " + arr[5] + "분\n관람등급정보: " + arr[6] + "\n예매자 수: " + arr[7] + "명\n누적관객수: " + arr[8]+ "명");
-            }
-        )
+        // 누적관객수 적립
+        Add_Accum(Name);
+        Show_detail(Name, now);
     })
 })
