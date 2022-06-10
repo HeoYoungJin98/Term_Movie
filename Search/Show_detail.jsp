@@ -3,11 +3,11 @@
 <%@ include file="../Conn/dbconn.jsp" %>
 <%@ page import="java.util.Arrays" %>
 
-<%
+<%  //상세 정보 보기
     request.setCharacterEncoding("utf-8");
 
-    String Name = request.getParameter("Name");
-    int Now = Integer.parseInt(request.getParameter("Now"));
+    String Name = request.getParameter("Name"); //영화 이름
+    int Now = Integer.parseInt(request.getParameter("Now")); //현재 선택한 타입. 상영중인지 예정인지
     ResultSet rs = null;
     Statement stmt = null;
     String[] str;
@@ -16,9 +16,9 @@
     String sql = null;
 
     try{
-        if(Now == 1){
+        if(Now == 1){ //상영중인 영화의 상세 정보
             sql = "SELECT 영화.영화이름, 영화.장르, 영화.개봉일, 영화.감독, 영화.출연자, 영화.총상영시간, 영화.관람등급정보, 개별상세정보_상영중.예매자수, 개별상세정보_상영중.누적관객수 FROM 영화, 개별상세정보_상영중 WHERE 개봉일 >= (CURRENT_DATE -7)  AND CURRENT_DATE >= 개봉일  AND 영화.영화이름 = 개별상세정보_상영중.영화이름 AND 영화.영화이름 = '"+Name+"'"; //상영중인 영화의 상세정보
-        }else{
+        }else{ //상영 예정 영화의 상세 정보
             sql = "SELECT 영화.영화이름, 영화.장르, 영화.개봉일, 영화.감독, 영화.출연자, 영화.총상영시간, 영화.관람등급정보, 개별상세정보_예정.예매자수 FROM 영화, 개별상세정보_예정 WHERE 개봉일 > CURRENT_DATE AND 영화.영화이름 = 개별상세정보_예정.영화이름 AND 영화.영화이름 = '"+Name+"'"; //상영 예정 영화의 상세정보
         }
         

@@ -15,9 +15,9 @@ $(document).ready(function(){
 
     function CreateTable(array){ //테이블을 만드는 함수
         let test = array
-        test=test.replace("[","");
+        test=test.replace("[",""); //대괄호 제거
         test=test.replace("]","");
-        test=test.replaceAll("\n","");
+        test=test.replaceAll("\n",""); //줄바꿈 제거
         const arr = test.split(","); //,단위로 문장 split
         let Row = arr.length / 8;
         let r = 0;
@@ -28,12 +28,12 @@ $(document).ready(function(){
             arr[r*8] = arr[r*8].trim(); //영화 제목에 줄바꿈이 포함돼서 돌아옴. 줄바꿈 제거
             arr[r*8+7] = arr[r*8+7].trim(); //마지막에 줄바꿈이 포함돼서 돌아옴. 줄바꿈 제거
             for(let i = 0; i<8; i++){
-                let Create_Td = document.createElement("td");
-                let Text = document.createTextNode(arr[r*8+i]);
+                let Create_Td = document.createElement("td"); //td 태그 생성
+                let Text = document.createTextNode(arr[r*8+i]); //내부 텍스트 값으로 배열 값 저장
                 if(i == 0){
-                    let Create_link = document.createElement("button");
-                    Create_link.setAttribute("Class","Name_btn");
-                    Create_link.appendChild(Text);
+                    let Create_link = document.createElement("button"); //테이블 행의 첫 값은 버튼으로 생성
+                    Create_link.setAttribute("Class","Name_btn"); //버튼의 class 지정
+                    Create_link.appendChild(Text); //텍스트 노드 붙이기
                     Create_Td.appendChild(Create_link);
                 }else{
                     Create_Td.appendChild(Text);
@@ -51,12 +51,12 @@ $(document).ready(function(){
         }
     }
 
-    function Show_detail(Name, Type){
+    function Show_detail(Name, Type){ //상세 정보를 보여주는 함수
         $.post(
             "Show_detail.jsp",
             {
-                Name: Name,
-                Now: Type,
+                Name: Name, //이름 전달
+                Now: Type, //타입 전달
             },
             function(Result){
                 let test = Result;
@@ -71,11 +71,11 @@ $(document).ready(function(){
         )
     }
 
-    function Add_Accum(Name){
+    function Add_Accum(Name){ //누적 관객수 업데이트
         $.post(
             "Add_Accum.jsp",
             {
-                Name: Name,
+                Name: Name, //이름 전달
             },
             function(Result){
                 
@@ -101,7 +101,7 @@ $(document).ready(function(){
             ShowResult(2);
         }else if(now == 2 && val == 1){ //상영 예정 영화의 개봉일 오름차순
             ShowResult(3);
-        }else{
+        }else{ //상영 예정 영화의 개봉일 내림차순
             ShowResult(4);
         }
     })
@@ -113,8 +113,7 @@ $(document).ready(function(){
     $(document).on("click",".Name_btn",function(){ //영화 이름 클릭시 이벤트, 개별 상세 정보 제공
         let Name = this.firstChild.nodeValue;
         let now = $("input[name=Select]:checked").val(); //상영중인 영화를 보고 있는지 개봉 예정 영화를 보고 있는지 체크
-        // 누적관객수 적립
-        Add_Accum(Name);
-        Show_detail(Name, now);
+        Add_Accum(Name); // 누적관객수 적립
+        Show_detail(Name, now); //개별 상세 정보 보여줌
     })
 })

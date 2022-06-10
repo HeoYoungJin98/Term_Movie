@@ -3,9 +3,9 @@
 <%@ include file="../Conn/dbconn.jsp" %>
 <%@ page import="java.util.Arrays" %>
 
-<%
-    int Mnum = Integer.parseInt(request.getParameter("Mnum"));
-    int Point = Integer.parseInt(request.getParameter("Cash"));
+<%  //환불 시 포인트 저장
+    int Mnum = Integer.parseInt(request.getParameter("Mnum")); //회원번호
+    int Point = Integer.parseInt(request.getParameter("Cash")); //저장할 포인트
 
     Statement stmt = null;
     String sql = null;

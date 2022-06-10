@@ -3,12 +3,12 @@
 <%@ include file="../Conn/dbconn.jsp" %>
 <%@ page import="java.util.Arrays" %>
 
-<%
-    String Name = request.getParameter("Name");
-    int Theater = Integer.parseInt(request.getParameter("Theater"));
+<%  //상영 날짜를 보여줌
+    String Name = request.getParameter("Name"); //영화 이름
+    int Theater = Integer.parseInt(request.getParameter("Theater")); //상영 극장
     ResultSet rs = null;
     Statement stmt = null;
-    String[] str;
+    String[] str; //결과를 저장할 배열
     int i = 0;
     int size = 0;
     String sql = null;
@@ -18,16 +18,16 @@
         stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
         rs = stmt.executeQuery(sql);
 
-        rs.last();
-        size = rs.getRow();
-        str = new String[size];
+        rs.last(); //resultSet의 크기를 알기 위해 pointer를 맨 뒤로 보냄
+        size = rs.getRow(); //resultSet의 크기 받아오기
+        str = new String[size]; //같은 크기의 배열 선언
 
-        rs.beforeFirst();
+        rs.beforeFirst(); //다시 결과를 처음부터 저장하기 위해 포인터를 제일 앞으로 가져옴
         while(rs.next()){
-            str[i] = rs.getString(1);
+            str[i] = rs.getString(1); //배열에 저장
             i++;
         }
-        out.println(Arrays.toString(str));
+        out.println(Arrays.toString(str)); //배열의 결과를 문자열 형태로 반환하여 출력
     }catch(SQLException ex){
         out.println("SQLException: " + ex.getMessage());
     }finally{

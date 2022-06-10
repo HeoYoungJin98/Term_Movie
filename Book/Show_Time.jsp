@@ -3,10 +3,10 @@
 <%@ include file="../Conn/dbconn.jsp" %>
 <%@ page import="java.util.Arrays" %>
 
-<%
-    String Name = request.getParameter("Name");
-    int Theater = Integer.parseInt(request.getParameter("Theater"));
-    String Date = request.getParameter("Date");
+<%  //상영 스케줄에서 시간을 가져옴
+    String Name = request.getParameter("Name"); //영화 이름
+    int Theater = Integer.parseInt(request.getParameter("Theater")); //극장 번호
+    String Date = request.getParameter("Date"); //상영 날짜
     ResultSet rs = null;
     Statement stmt = null;
     String[] str;
@@ -19,11 +19,11 @@
         stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
         rs = stmt.executeQuery(sql);
 
-        rs.last();
-        size = rs.getRow();
-        str = new String[size];
+        rs.last(); //ResultSet의 크기를 알기 위해 포인터를 제일 뒤로 보냄
+        size = rs.getRow(); //크기를 size에 저장
+        str = new String[size]; //같은 크기의 배열 선언
 
-        rs.beforeFirst();
+        rs.beforeFirst(); //처음부터 값을 집어넣기 위해 포인터를 제일 앞으로 이동
         while(rs.next()){
             str[i] = rs.getString(1);
             i++;

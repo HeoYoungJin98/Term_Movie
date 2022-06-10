@@ -3,10 +3,10 @@
 <%@ include file="../Conn/dbconn.jsp" %>
 <%@ page import="java.util.Arrays" %>
 
-<%
+<%  //타입에 따라 영화 목록 가져옴
     request.setCharacterEncoding("utf-8");
 
-    int Order = Integer.parseInt(request.getParameter("Order"));
+    int Order = Integer.parseInt(request.getParameter("Order")); //정렬 방식과 상영중인 영화인지 예정 영화인지
     ResultSet rs = null;
     Statement stmt = null;
     String[] str;

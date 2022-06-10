@@ -3,11 +3,11 @@
 <%@ include file="../Conn/dbconn.jsp" %>
 <%@ page import="java.util.Arrays" %>
 
-<%
+<%  //내역들을 가져옴
     request.setCharacterEncoding("utf-8");
 
-    int Type = Integer.parseInt(request.getParameter("Type"));
-    int Mnum = Integer.parseInt(request.getParameter("Mnum"));
+    int Type = Integer.parseInt(request.getParameter("Type")); //어떤 종류의 내역인지 정보
+    int Mnum = Integer.parseInt(request.getParameter("Mnum")); //회원 번호
     ResultSet rs = null;
     Statement stmt = null;
     String[] str;

@@ -3,7 +3,7 @@
 <%@ include file="../Conn/dbconn.jsp" %>
 <%@ page import="java.util.Arrays" %>
 
-<%
+<%  //극장 목록 가져옴
     ResultSet rs = null;
     Statement stmt = null;
     String[] str;

@@ -3,9 +3,9 @@
 <%@ include file="../Conn/dbconn.jsp" %>
 <%@ page import="java.util.Arrays" %>
 
-<%
-    String Movie = request.getParameter("Movie");
-    int mem = Integer.parseInt(request.getParameter("Mem"));
+<%  //개별상세정보_상영중 테이블의 영화에 예매자수를 더함
+    String Movie = request.getParameter("Movie"); //Movie 값 받아와 저장
+    int mem = Integer.parseInt(request.getParameter("Mem")); //인원수 받아와 저장
 
     Statement stmt = null;
     String sql = null;

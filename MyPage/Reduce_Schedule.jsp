@@ -3,10 +3,10 @@
 <%@ include file="../Conn/dbconn.jsp" %>
 <%@ page import="java.util.Arrays" %>
 
-<%
-    String Movie = request.getParameter("Movie");
-    int mem = Integer.parseInt(request.getParameter("Mem"));
-    String Time = request.getParameter("Time");
+<%  //스케줄에서 예매자 수를 줄임
+    String Movie = request.getParameter("Movie"); //영화 이름 저장
+    int mem = Integer.parseInt(request.getParameter("Mem")); //줄일 회원 수 저장
+    String Time = request.getParameter("Time"); //줄일 스케줄의 상영 시간
 
     Statement stmt = null;
     String sql = null;

@@ -3,8 +3,8 @@
 <%@ include file="../Conn/dbconn.jsp" %>
 <%@ page import="java.util.Arrays" %>
 
-<%
-    int Mnum = Integer.parseInt(request.getParameter("Mnum"));
+<%  //현제 보유중인 포인트 정보 받아오기
+    int Mnum = Integer.parseInt(request.getParameter("Mnum")); //회원 번호
     ResultSet rs = null;
     Statement stmt = null;
     String sql = null;

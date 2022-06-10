@@ -3,10 +3,10 @@
 <%@ include file="../Conn/dbconn.jsp" %>
 <%@ page import="java.util.Arrays" %>
 
-<%
-    int Mnum = Integer.parseInt(request.getParameter("Mnum"));
-    String Movie = request.getParameter("Movie");
-    String Date = request.getParameter("Date");
+<%  //예매 취소
+    int Mnum = Integer.parseInt(request.getParameter("Mnum")); //회원 번호
+    String Movie = request.getParameter("Movie"); //취소할 영화 이름
+    String Date = request.getParameter("Date"); //취소할 시간
 
     Statement stmt = null;
     String sql = null;

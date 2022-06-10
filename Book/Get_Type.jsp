@@ -3,10 +3,10 @@
 <%@ include file="../Conn/dbconn.jsp" %>
 <%@ page import="java.util.Arrays" %>
 
-<%
-    int Theater = Integer.parseInt(request.getParameter("Theater"));
-    String Name = request.getParameter("Name");
-    String Time = request.getParameter("Time");
+<%  //선택한 스케줄이 상영되는 상영관의 타입 받아오기
+    int Theater = Integer.parseInt(request.getParameter("Theater")); //극장 번호
+    String Name = request.getParameter("Name"); //영화 이름
+    String Time = request.getParameter("Time"); //상영 시간
     ResultSet rs = null;
     Statement stmt = null;
     String sql = null;

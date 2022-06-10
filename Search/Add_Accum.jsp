@@ -3,8 +3,8 @@
 <%@ include file="../Conn/dbconn.jsp" %>
 <%@ page import="java.util.Arrays" %>
 
-<%
-    String Movie = request.getParameter("Name");
+<%  //상세정보보기를 눌렀을 때 누적 관객수 저장
+    String Movie = request.getParameter("Name"); //영화이름
 
     Statement stmt = null;
     String sql = null;

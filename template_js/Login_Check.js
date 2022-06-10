@@ -5,7 +5,7 @@ $(document).ready(function(){
         div.setAttribute("id","Success_Login")
         let p = document.createElement("p");//p태그 생성
         p.setAttribute("class","Font");
-        let text = document.createTextNode(e + "님 환영합니다.");
+        let text = document.createTextNode(e + "님 환영합니다."); //텍스트 노드 생성
         p.appendChild(text);
         div.appendChild(p);
         $("#Login_div").append(div);
@@ -15,10 +15,10 @@ $(document).ready(function(){
         const { name, Mnum } = JSON.parse(sessionStorage.getItem("user_info")); //이름을 저장
         Login(name);
     }else{// 로그인하지 않은 상태일 경우
-        $("#Login_div").load("../template/Not_Login.html");
+        $("#Login_div").load("../template/Not_Login.html"); //로그인 template 가져옴
     }
 
-    $(document).on("click","#Login_btn",function(){
+    $(document).on("click","#Login_btn",function(){ //로그인 버튼 클릭 시
         var ID = $("#ID").val(); // 회원정보 가져옴
         var PWD = $("#PWD").val(); // 비밀번호 가져옴
 
